@@ -1,0 +1,140 @@
+├── .env.example
+├── .env.travis
+├── .gitignore
+├── .travis.yml
+├── LICENSE
+├── composer.json
+├── phpunit.xml
+├── readme.md
+└── src
+    ├── App
+    │   ├── Exceptions
+    │   │   ├── AccessDeniedException.php
+    │   │   ├── LevelDeniedException.php
+    │   │   ├── PermissionDeniedException.php
+    │   │   └── RoleDeniedException.php
+    │   ├── Http
+    │   │   ├── Controllers
+    │   │   │   ├── Api
+    │   │   │   │   └── LaravelRolesApiController.php
+    │   │   │   ├── LaravelPermissionsController.php
+    │   │   │   ├── LaravelRolesController.php
+    │   │   │   ├── LaravelRolesDeletedController.php
+    │   │   │   └── LaravelpermissionsDeletedController.php
+    │   │   ├── Middleware
+    │   │   │   ├── VerifyLevel.php
+    │   │   │   ├── VerifyPermission.php
+    │   │   │   └── VerifyRole.php
+    │   │   └── Requests
+    │   │       ├── StorePermissionRequest.php
+    │   │       ├── StoreRoleRequest.php
+    │   │       ├── UpdatePermissionRequest.php
+    │   │       └── UpdateRoleRequest.php
+    │   └── Services
+    │       ├── PermissionFormFields.php
+    │       └── RoleFormFields.php
+    ├── Contracts
+    │   ├── HasRoleAndPermission.php
+    │   ├── PermissionHasRelations.php
+    │   └── RoleHasRelations.php
+    ├── Models
+    │   ├── Permission.php
+    │   └── Role.php
+    ├── RolesFacade.php
+    ├── RolesServiceProvider.php
+    ├── Traits
+    │   ├── DatabaseTraits.php
+    │   ├── HasRoleAndPermission.php
+    │   ├── PermissionHasRelations.php
+    │   ├── RoleHasRelations.php
+    │   ├── RolesAndPermissionsHelpersTrait.php
+    │   ├── RolesUsageAuthTrait.php
+    │   └── Slugable.php
+    ├── config
+    │   └── roles.php
+    ├── database
+    │   ├── Migrations
+    │   │   ├── 2016_01_15_105324_create_roles_table.php
+    │   │   ├── 2016_01_15_114412_create_role_user_table.php
+    │   │   ├── 2016_01_26_115212_create_permissions_table.php
+    │   │   ├── 2016_01_26_115523_create_permission_role_table.php
+    │   │   └── 2016_02_09_132439_create_permission_user_table.php
+    │   └── Seeds
+    │       ├── DefaultConnectRelationshipsSeeder.php
+    │       ├── DefaultPermissionsTableSeeder.php
+    │       ├── DefaultRolesTableSeeder.php
+    │       ├── DefaultUsersTableSeeder.php
+    │       └── publish
+    │           ├── ConnectRelationshipsSeeder.php
+    │           ├── PermissionsTableSeeder.php
+    │           ├── RolesTableSeeder.php
+    │           └── UsersTableSeeder.php
+    ├── resources
+    │   ├── lang
+    │   │   └── en
+    │   │       └── laravelroles.php
+    │   └── views
+    │       └── laravelroles
+    │           ├── cards
+    │           │   ├── permissions-card.blade.php
+    │           │   └── roles-card.blade.php
+    │           ├── crud
+    │           │   ├── dashboard.blade.php
+    │           │   ├── permissions
+    │           │   │   ├── create.blade.php
+    │           │   │   ├── deleted
+    │           │   │   │   └── index.blade.php
+    │           │   │   ├── edit.blade.php
+    │           │   │   └── show.blade.php
+    │           │   └── roles
+    │           │       ├── create.blade.php
+    │           │       ├── deleted
+    │           │       │   └── index.blade.php
+    │           │       ├── edit.blade.php
+    │           │       └── show.blade.php
+    │           ├── forms
+    │           │   ├── create-permission-form.blade.php
+    │           │   ├── create-role-form.blade.php
+    │           │   ├── delete-sm.blade.php
+    │           │   ├── destroy-all-permissions.blade.php
+    │           │   ├── destroy-all-roles.blade.php
+    │           │   ├── destroy-sm.blade.php
+    │           │   ├── edit-permission-form.blade.php
+    │           │   ├── edit-role-form.blade.php
+    │           │   ├── partials
+    │           │   │   ├── permission-desc-input.blade.php
+    │           │   │   ├── permission-name-input.blade.php
+    │           │   │   ├── permission-slug-input.blade.php
+    │           │   │   ├── permissions-model-select.blade.php
+    │           │   │   ├── role-desc-input.blade.php
+    │           │   │   ├── role-level-input.blade.php
+    │           │   │   ├── role-name-input.blade.php
+    │           │   │   ├── role-permissions-select.blade.php
+    │           │   │   └── role-slug-input.blade.php
+    │           │   ├── permission-form.blade.php
+    │           │   ├── restore-all-permissions.blade.php
+    │           │   ├── restore-all-roles.blade.php
+    │           │   ├── restore-item.blade.php
+    │           │   └── role-form.blade.php
+    │           ├── modals
+    │           │   └── confirm-modal.blade.php
+    │           ├── partials
+    │           │   ├── bs-visibility-css.blade.php
+    │           │   ├── flash-messages.blade.php
+    │           │   ├── form-status.blade.php
+    │           │   └── styles.blade.php
+    │           ├── scripts
+    │           │   ├── confirm-modal.blade.php
+    │           │   ├── datatables.blade.php
+    │           │   ├── form-inputs-helpers.blade.php
+    │           │   ├── selectize.blade.php
+    │           │   ├── selectizePermission.blade.php
+    │           │   └── tooltips.blade.php
+    │           └── tables
+    │               ├── permission-items-table.blade.php
+    │               ├── permissions-table.blade.php
+    │               ├── role-items-table.blade.php
+    │               └── roles-table.blade.php
+    └── routes
+        ├── api.php
+        └── web.php
